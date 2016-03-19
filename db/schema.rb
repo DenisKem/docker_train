@@ -20,10 +20,12 @@ ActiveRecord::Schema.define(version: 20160319131907) do
     t.string   "name"
     t.string   "git_repo_url"
     t.string   "server_name"
-    t.integer  "max_keep_releases"
+    t.integer  "max_keep_releases", default: 3
     t.text     "summary"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
+
+  add_index "projects", ["name"], name: "index_projects_on_name", unique: true, using: :btree
 
 end
