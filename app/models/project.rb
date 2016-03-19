@@ -17,6 +17,8 @@
 #
 
 class Project < ApplicationRecord
+  has_many :releases
+
   validates :name, :git_repo_url, :server_name, :max_keep_releases, presence: true
   validates :name, uniqueness: true
 end

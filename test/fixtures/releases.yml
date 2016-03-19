@@ -1,0 +1,34 @@
+# == Schema Information
+#
+# Table name: releases
+#
+#  id           :integer          not null, primary key
+#  name         :string
+#  project_id   :integer
+#  life_stage   :string
+#  tcp_port     :string
+#  container_id :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  index_releases_on_name        (name) UNIQUE
+#  index_releases_on_project_id  (project_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  project: one
+  life_stage: MyString
+  tcp_port: MyString
+  container_id: MyString
+
+two:
+  name: MyString
+  project: two
+  life_stage: MyString
+  tcp_port: MyString
+  container_id: MyString
