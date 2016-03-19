@@ -1,0 +1,12 @@
+nav.navbar.navbar-default.navbar-static-top
+  .container
+    ul.nav.nav-tabs
+
+      li class=('active' if current_page? root_path) role="presentation"
+        a href=root_url  Home
+
+      li role="presentation"
+        a href="#"  Projects
+
+      li class=('active' if controller_name == 'docker') role="presentation"
+        a href=docker_ps_path  Dockers Ps
