@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   root to: 'docker#images'
 
-  resources :projects
+  resources :projects do
+    resources :releases, shallow: true, except: [:new, :edit]
+  end
 
   get 'docker/ps' => 'docker#ps'
 end

@@ -23,6 +23,7 @@
               p= project.summary
 
               .btn-group
+                = link_to 'Releases', project_releases_path(project), class: 'btn btn-link'
                 = link_to 'Edit', edit_project_path(project), class: 'btn btn-default'
                 = link_to 'Destroy', project, data: {:confirm => 'Are you sure?'},
                           :method => :delete, class: 'btn btn-danger'

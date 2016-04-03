@@ -1,0 +1,22 @@
+.container
+  h1
+    |Releases of #{@project.name}&nbsp;
+
+  .row
+    - @releases.each do |release|
+      .col-sm-4
+        .panel.panel-info
+          .panel-heading
+            = release.name
+
+          .panel-body
+            .btn-group
+              = link_to 'Show', release, class: 'btn btn-info'
+              = link_to 'Destroy', release, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger'
+
+
+  br
+  .btn-group
+    div style="display: inline-block;"
+      = button_to 'Build release', project_releases_path(@project), class: 'btn btn-primary'
+    = link_to 'Back', @project, class: 'btn btn-default'
