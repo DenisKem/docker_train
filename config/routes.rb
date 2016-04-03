@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'docker#images'
 
+  resources :projects
+
   get 'docker/ps' => 'docker#ps'
 end

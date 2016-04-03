@@ -1,0 +1,12 @@
+.container
+
+  h1= @project.name
+
+  p= @project.summary
+
+
+  .row
+    .col-sm-7
+      .btn-group.pull-left
+        = link_to 'Edit', edit_project_path(@project), class: 'btn btn-info'
+        = link_to 'Back', projects_path, class: 'btn btn-default'
