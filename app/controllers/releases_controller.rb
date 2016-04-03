@@ -1,6 +1,6 @@
 class ReleasesController < ApplicationController
   before_action :set_project, only: [:index, :create]
-  before_action :set_release, only: [:show, :edit, :update, :destroy]
+  before_action :set_release, only: [:show, :edit, :update, :destroy, :build, :start, :stop]
 
   # GET /releases
   # GET /releases.json
@@ -38,6 +38,31 @@ class ReleasesController < ApplicationController
       end
     end
   end
+
+  def build
+    @release.build!
+
+    respond_to do |format|
+      format.html { redirect_to  (request.referrer || project_releases_path(@project)), notice: 'Release building was successfully started.' }
+    end
+  end
+
+  def start
+    @release.start!
+
+    respond_to do |format|
+      format.html { redirect_to  (request.referrer || project_releases_path(@project)), notice: 'Release running was successfully started.' }
+    end
+  end
+
+  def stop
+    @release.stop!
+
+    respond_to do |format|
+      format.html { redirect_to  (request.referrer || project_releases_path(@project)), notice: 'Release stooped was successfully started.' }
+    end
+  end
+
 
   # PATCH/PUT /releases/1
   # PATCH/PUT /releases/1.json

@@ -1,0 +1,8 @@
+- if release.cold?
+  = button_to 'Build', build_release_path(release), class: 'btn btn-sm btn-primary'
+
+- if release.stopped?
+  = button_to 'Start', start_release_path(release), class: 'btn btn-sm btn-success'
+
+- if release.running?
+  = button_to 'Stop', stop_release_path(release), class: 'btn btn-sm btn-warning'

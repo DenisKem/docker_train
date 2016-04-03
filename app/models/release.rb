@@ -31,6 +31,26 @@ class Release < ApplicationRecord
 
   aasm column: :life_stage do
     state :cold, initial: true
+
+    state :building
+
+    state :running
+
+    state :stopped
+
+    event :build do
+      transitions from: :cold, to: :building
+    end
+
+    event :run do
+      transitions from: [:building, :stopped ], to: :running
+    end
+
+    event :stop do
+      transitions from: :running, to: :stopped
+    end
+
+
   end
 
   private
