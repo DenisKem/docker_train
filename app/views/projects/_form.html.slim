@@ -27,7 +27,7 @@
       .form-group
         = f.label :max_keep_releases, class: 'col-sm-2 control-label'
         .col-sm-2
-          = f.text_field :max_keep_releases, class: 'form-control'
+          = f.number_field :max_keep_releases, class: 'form-control'
 
       .form-group
         = f.label :summary, class: 'col-sm-2 control-label'
@@ -36,4 +36,4 @@
 
       .form-group
         .col-sm-offset-2.col-sm-10
-          button.btn.btn-primary type="submit"  Save
+          button.btn.btn-primary.pull-right type="submit"  Save

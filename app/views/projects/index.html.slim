@@ -20,7 +20,7 @@
                 = link_to project.name, project
 
             .panel-body
-              p= project.summary
+              = render 'projects/info', project: project
 
               .btn-group
                 = link_to 'Releases', project_releases_path(project), class: 'btn btn-link'

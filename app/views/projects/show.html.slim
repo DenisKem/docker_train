@@ -2,7 +2,8 @@
 
   h1= @project.name
 
-  p= @project.summary
+  = render 'projects/info', project: @project
+
 
 
   .row
