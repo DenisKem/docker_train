@@ -1,5 +1,11 @@
 .container
   h1= @release.name
 
+  div
+    = render 'releases/controls', release: @release
+  br
 
-  = link_to 'Back', project_releases_path(@release.project)
+  = render 'releases/info', release: @release
+
+
+  = link_to 'Back', project_releases_path(@release.project), class: 'btn btn-default'
