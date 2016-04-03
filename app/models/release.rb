@@ -28,6 +28,7 @@ class Release < ApplicationRecord
   scope :fresh_first, ->{ order(created_at: :desc) }
 
   after_create :clean_old_releases
+  before_destroy :stop_if_running
 
   aasm column: :life_stage do
     state :cold, initial: true
@@ -56,5 +57,9 @@ class Release < ApplicationRecord
   private
   def clean_old_releases
     project.reload.destroy_old_releases
+  end
+
+  def stop_if_running
+    stop! if running?
   end
 end
